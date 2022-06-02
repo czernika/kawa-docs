@@ -4,6 +4,10 @@ Developer-friendly framework for WordPress theme development with latte template
 
 [![Build Status](https://app.travis-ci.com/czernika/kawa.svg?token=dnoAxtq1npfjzQ8rFLq7&branch=master)](https://app.travis-ci.com/czernika/kawa)
 
+Kawa Framework allows you to write WordPress themes in a modern way using MVC pattern. It has been heavily inspired by elegant syntax of Laravel Framework and we try to implement "Laravel-way of doing things". We hide routine WordPress basics behind the scene while keeping its functionality
+
+Do more - write less!
+
 ## Todo
 
 ?> This section shows the roadmap for Kawa Framework
