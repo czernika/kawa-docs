@@ -1,3 +1,3 @@
-# Documentation for Brocket
+# Documentation for Kawa Framework
 
-Repository - [https://github.com/czernika/brocket](https://github.com/czernika/brocket)
+> In progress
