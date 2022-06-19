@@ -5,3 +5,7 @@
 - group
 - nested groups
 - handlers
+- name
+- middleware
+- view routes
+- responses

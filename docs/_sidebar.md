@@ -8,3 +8,10 @@
 
 * Basics
   * [Routing](/basics/routing.md)
+  * [Controllers](/basics/controllers.md)
+  * [Middleware](/basics/middleware.md)
+  * [Models](/basics/models.md)
+  * [Queries](/basics/queries.md)
+
+* Frontend
+  * [Pagination](/front-end/pagination.md)
