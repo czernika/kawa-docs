@@ -6,7 +6,7 @@ First of all, Kawa uses Bedrock folder structure - server request is forwarded i
 
 > Every next topic will cover `web/app/themes/kawa` directory and every file we mention will be located within. When we're saying `functions.php` file, what we're actually mean is `web/app/themes/kawa/functions.php` file
 
-Every WordPress theme (except for block themes) requires files named `index.php` and `style.css`. Kawa Framework no exception in this rule - keep it in mind
+!> Every WordPress theme (except for block themes) requires files named `index.php` and `style.css`. Kawa Framework no exception in this rule - keep it in mind
 
 ## Booting Application
 
@@ -32,10 +32,10 @@ When app is booted, it hooks into `kawa/response` action within `index.php` file
 
 > Route may has any condition such as callable tag condition, typical uri routing based on regex or any specific one you define. First route which matches provided condition will be set as satisfied  
 
-When handler defined, Kernel will call it to get page response. But first it will got through every middleware for this route, included grouped. If some of them "failed", middleware object will correct response object and return a new one. If there are more than one failed - the first failed response will be returned
+When handler defined, Kernel will call it to get page response. But first it will go through every middleware for this route, included grouped and controllers one. If some of them "failed", middleware object will correct response object and return a new one. If there are more than one failed - the first failed response will be returned
 
-And finally Kernel object send headers and drawing the result of handler callback. You may enjoy your "Hello World!"
+And finally Kernel object send headers and drawing the result of handler callback. You may now enjoy your "Hello World!" page
 
-If you're not going to use Kawa Framework (wanna use it like regular WordPress theme), you will need to remove `kawa/response` hook from `index.php` file and clean up `functions.php` or just comment app booting within `bootstrap/app.php` - that's minimum. Of course you should remove unused composer dependencies in this case but still Kawa Framework will not be booted without calling `boot()` method. 
+If you're not going to use Kawa Framework (wanna use it like regular WordPress theme), you will need to remove `kawa/response` hook from `index.php` file and clean up `functions.php` or just comment app booting within `bootstrap/app.php` - that's minimum. Of course you should remove unused composer dependencies in this case but still Kawa Framework will not be booted without calling `boot()` method.
 
-It still makes sense as Kawa Framework is not tested with every possible plugin - remember your application still will use Bedrock folder structure, where `HOME_URL` and `SITE_URL` are differs. Kawa Framework strongly relies on Bedrock structure and will **NOT** be tested with default WordPress structure
+!> It still makes sense as Kawa Framework is not tested with every possible plugin - remember your application still will use Bedrock folder structure, where `HOME_URL` and `SITE_URL` are differs. Kawa Framework strongly relies on Bedrock structure and will **NOT** be tested with default WordPress structure

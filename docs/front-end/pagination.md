@@ -33,7 +33,7 @@ Will do the trick. Now you will get correct response on `/page/4`, showing your 
 
 `Post::get()` will work as for global pagination (from admin panel) or custom (from Kernel). Consider it like you always get paginated objects. Actually, this is how WordPress works by default
 
-## Getting Pagination
+## Building Pagination
 
 When you create posts Collection, you may access pagination on front in many ways
 
@@ -63,7 +63,7 @@ Both methods will retrieve same result as WordPress `paginate_links()` for `plai
 ])|noescape}
 ```
 
-If ypu wish to have more control over building pagination links, you may use `$posts->pagination` as `Pagination` object. It will return an array of `PaginationLink` objects  
+If you wish to have more control over building pagination links, you may use `$posts->pagination` as `Pagination` object. It will return an array of `PaginationLink` objects  
 
 ```latte
 <ul n:if="$posts->pagination">

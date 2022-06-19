@@ -82,7 +82,3 @@ RewriteEngine on
 RewriteCond %{REQUEST_URI} !web/
 RewriteRule ^(.*)$ /web/$1 [L]
 ```
-
-## WP Cli
-
-It is highly recommended to install [wp-cli](https://wp-cli.org) utility

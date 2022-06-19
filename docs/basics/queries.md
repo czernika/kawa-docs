@@ -44,7 +44,7 @@ Returns: `\Kawa\Queries\PostCollection`
 
 ### Getting some specific amount of posts
 
-Works same way as get, but does not care about building of pagination object
+Works same way as get, but does not care about building of pagination object. This may be useful when you want to get 3 latest posts on a front page and 10 on archive blog page - so you don't care about pagination in a first case
 
 ```php
 Post::take(4);
@@ -54,7 +54,7 @@ Parameters:
 
 | Parameter | Meaning |
 | --- | --- |
-| `int $perPage | Amount of posts to get |
+| `int $perPage` | Amount of posts to get |
 
 Returns: `\Kawa\Queries\PostCollection`
 
@@ -70,7 +70,7 @@ Parameters:
 
 | Parameter | Meaning |
 | --- | --- |
-| `array $query | Query arguments |
+| `array $query` | Query arguments |
 
 > Note: this method returns Builder object - this mean it can be chained. In order to retrieve posts collection finish ot with `get`, `all` or `take` methods
 
