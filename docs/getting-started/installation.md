@@ -2,11 +2,24 @@
 
 ## Installation
 
-TODO installation guide
+This package available in Packagist as `czernika/kawa`. As it still in development mode, you need to require master branch - no releases were made
+
+### Install with Docker
+
+You need [Docker](https://www.docker.com/) installed on your machine
+
+> Note: dev-master branch in use!
+
+```bash
+docker run --rm --interactive --tty \
+    --volume $PWD:/app \
+    --user $(id -u):$(id -g) \
+    composer create-project czernika/kawa:dev-master <project-dir>
+```
 
 ## Running with Docker
 
-Kawa Framework comes with Docker configuration. All you need is [Docker](https://www.docker.com/) installed on your machine
+Kawa Framework comes with Docker configuration
 
 Kawa Framework pulls:
 
@@ -45,15 +58,9 @@ docker exec -it kawa wp db create
 docker exec -it kawa wp core install --url=example.test --title=Example --admin_user=supervisor --admin_email=info@example.test --admin_password=strongpassword
 ```
 
-5. Generate salts
+or go to `example.test` in your browser and fill in website data
 
-TODO check does this works after changing default docker user
-
-```bash
-docker exec -it kawa wp dotenv salts generate
-```
-
-6. Install npm dependencies
+Optional: install npm dependencies
 
 ```sh
 docker exec -it kawa npm install
