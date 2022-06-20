@@ -31,28 +31,45 @@ Bedrock folder structure [requires](https://docs.roots.io/bedrock/master/server-
 
 ### Nginx
 
-```
+```nginx
 server {
-  listen 80;
-  server_name example.com;
+    listen 80;
+    server_name example.com;
 
-  root /srv/www/example.com/web;
-  index index.php index.htm index.html;
+    root /var/www/html/web;
+    index index.php;
 
-  # Prevent PHP scripts from being executed inside the uploads folder.
-  location ~* /app/uploads/.*.php$ {
-    deny all;
-  }
+    access_log /var/log/nginx/access.log;
+    error_log /var/log/nginx/error.log;
 
-  location / {
-    try_files $uri $uri/ /index.php?$args;
-  }
+    client_max_body_size 128M;
+
+    error_page 404 /index.php;
+
+    # Prevent PHP scripts from being executed inside the uploads folder.
+    location ~* /app/uploads/.*.php$ {
+        deny all;
+    }
+    
+    location / {
+        try_files $uri $uri/ /index.php?$args;
+    }
+
+    location ~ \.php$ {
+        try_files $uri =404;
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_pass php:9000;
+        fastcgi_index index.php;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param PATH_INFO $fastcgi_path_info;
+    }
 }
 ```
 
 ### Apache
 
-```
+```apache
 <VirtualHost *:80>
         DocumentRoot /var/www/html/bedrock/web
 
@@ -76,7 +93,7 @@ server {
 
 You may also use `.htaccess` file for hosted web sites with the following content
 
-```
+```apache
 RewriteEngine on
 
 RewriteCond %{REQUEST_URI} !web/
